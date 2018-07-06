@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目名称录入</title>
+</head>
+<body>
+<form action="/item_insert" method="post">
+    <legend>输入项目内容</legend>
+    <p><input name="name" placeholder="名称" value="{{ name }}"></p>
+    <p><input name="abbr" placeholder="缩写" value="{{ abbr }}"></p>
+    <p><input name="unit" placeholder="单位" value="{{ unit }}"></p>
+    <p><input name="upper" placeholder="上限" value="{{ upper }}"></p>
+    <p><input name="lower" placeholder="下限" value="{{ lower }}"></p>
+    <p><button type="submit">提交</button></p>
+</form>
+</body>
+</html>
