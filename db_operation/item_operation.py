@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #-*- coding:utf-8 -*-
 
-'用于数据库中检查项目名称，名称缩写说字幕，计量单位，上下限阈值的插入及修改'
+'用于数据库中检查项目名称，名称缩写，计量单位，上下限阈值的插入及修改'
 
 import sqlite3
 from time import *
