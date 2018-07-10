@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>项目名称修改</title>
+</head>
+
+<body>
+  <form action="/item_update" method="post" enctype="text/plain">
+    <legend>输入项目内容</legend>
+    <p><label>名称</label><input name="name" value="{{ results[1] }}" autofocus required tabindex="1"></p>
+    <p><label>缩写</label><input name="abbr" value="{{ results[2] }}" required tabindex="2"></p>
+    <p><label>单位</label><input name="unit" value="{{ results[3] }}" required tabindex="3"></p>
+    <p><label>上限</label><input name="upper" value="{{ results[4] }}" required tabindex="4"></p>
+    <p><label>下限</label><input name="lower" value="{{ results[5] }}" required tabindex="5"></p>
+    <p><button type="submit" tabindex="6">提交</button></p>
+  </form>
+</body>
+
+</html>
