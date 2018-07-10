@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #-*- coding:utf-8 -*-
 
-'用于数据库中检查项目名称，名称缩写说字幕，计量单位，上下限阈值的插入及修改'
+'用于数据库中检查项目名称，名称缩写，计量单位，上下限阈值的插入及修改'
 
 import sqlite3
 from time import *
@@ -19,7 +19,24 @@ def item_insert(name,abbr,unit,upper,lower):
     conn.commit()
     conn.close()
 
+def item_search(name,abbr=""):
+    # 打开数据库
+    conn = sqlite3.connect('MedicalReport.db')
+    cursor = conn.cursor()
+    if len(name) == 0 and len(abbr) == 0:
+        sqlstr = 'select id,name,abbreviation,unit,UpperLimit,LowerLimit,create_time,update_time from item order by id limit 1000'
+    elif len(name) == 0 and len(abbr) >0:
+        sqlstr =  'select id,name,abbreviation,unit,UpperLimit,LowerLimit,create_time,update_time from item  where abbreviation like \'%'+abbr+'%\' order by id limit 1000'
+    elif len(name) >0 and len(abbr) ==0:
+        sqlstr =  'select id,name,abbreviation,unit,UpperLimit,LowerLimit,create_time,update_time from item where name like \'%'+name+'%\' order by id limit 1000'
+    elif len(name) >0 and len(abbr) >0:
+        sqlstr =  'select id,name,abbreviation,unit,UpperLimit,LowerLimit,create_time,update_time from item where (name like \'%'+name+'%\' and abbreviation like \'%'+abbr+'%\' ) order by id limit 1000'
+    cursor.execute(sqlstr)
+    values = cursor.fetchall()
+    cursor.close()
+    conn.commit()
+    conn.close()
+
 
 if __name__=='__main__':
-    item_insert( name, abbr, unit, upper, lower)
-
+    item_search( name, abbr)
