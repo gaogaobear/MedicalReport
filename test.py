@@ -12,6 +12,7 @@ def test_page():
 
 @app.route('/test',methods=['POST'])
 def test():
+    print(request)
     name = request.form['name']
     abbr = request.form['abbr']
     conn = sqlite3.connect('MedicalReport.db')
@@ -30,6 +31,20 @@ def test():
     conn.commit()
     conn.close()
     return render_template('test_list.html',results=result)
+
+@app.route('/item_update',methods=['GET'])
+def item_update_page():
+    index_id = request.args['id']
+    conn = sqlite3.connect('MedicalReport.db')
+    cursor = conn.cursor()
+    cursor.execute('select * from item where id=? limit 1',index_id)
+    result = cursor.fetchone()
+    cursor.close()
+    conn.commit()
+    conn.close()
+    return render_template('item_update.html',results=result)
+
+
 
 
 if __name__ == '__main__':
