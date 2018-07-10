@@ -20,14 +20,14 @@
     </tr>
       {% for i in results %}
     <tr>
-      <td>{{ i.id }}</td>
-      <td>{{ i.name }}</td>
-      <td>{{ i.abbreviation }}</td>
-      <td>{{ i.unit }}</td>
-      <td>{{ i.UpperLimit }}</td>
-      <td>{{ i.LowerLimit }}</td>
-      <td>{{ i.create_time }}</td>
-      <td>{{ i.update_time }}</td>
+      <td>{{ i[0] }}</td>
+      <td>{{ i[1] }}</td>
+      <td>{{ i[2] }}</td>
+      <td>{{ i[3] }}</td>
+      <td>{{ i[4] }}</td>
+      <td>{{ i[5] }}</td>
+      <td>{{ i[6] }}</td>
+      <td>{{ i[7] }}</td>
     </tr>
       {% endfor %}
   </table>
