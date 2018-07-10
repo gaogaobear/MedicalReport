@@ -1,18 +1,22 @@
-﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>项目名称录入</title>
+  <meta charset="UTF-8">
+  <title>项目名称录入</title>
 </head>
+
 <body>
-<form action="/item_insert" method="post" enctype="text/plain">
+  <form action="/item_insert" method="post" enctype="text/plain">
     <legend>输入项目内容</legend>
-    <p><label>名称</label><input name="name"  value="{{ name }}"  autofocus required tabindex="1"></p>
+    <p><label>名称</label><input name="name" value="{{ name }}" autofocus required tabindex="1"></p>
     <p><label>缩写</label><input name="abbr" value="{{ abbr }}" required tabindex="2"></p>
     <p><label>单位</label><input name="unit" value="{{ unit }}" required tabindex="3"></p>
-    <p><label>上限</label><input name="upper"  value="{{ upper }}" required tabindex="4"></p>
+    <p><label>上限</label><input name="upper" value="{{ upper }}" required tabindex="4"></p>
     <p><label>下限</label><input name="lower" value="{{ lower }}" required tabindex="5"></p>
     <p><button type="submit" tabindex="6">提交</button></p>
-</form>
+  </form>
 </body>
+
 </html>

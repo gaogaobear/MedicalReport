@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>检查项目列表</title>
+</head>
+
+<body>
+  <table border="1">
+    <tr>
+      <th>序号</th>
+      <th>项目名称</th>
+      <th>名称缩写</th>
+      <th>计量单位</th>
+      <th>上限值</th>
+      <th>下限值</th>
+      <th>创建日期</th>
+      <th>修改日期</th>
+    </tr>
+      {% for i in results %}
+    <tr>
+      <td>{{ i.id }}</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.abbreviation }}</td>
+      <td>{{ i.unit }}</td>
+      <td>{{ i.UpperLimit }}</td>
+      <td>{{ i.LowerLimit }}</td>
+      <td>{{ i.create_time }}</td>
+      <td>{{ i.update_time }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</body>
+</html>

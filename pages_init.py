@@ -3,6 +3,7 @@
 
 from flask import Flask,request,render_template
 from db_operation import item_operation
+from typing import List
 
 app = Flask(__name__)
 
@@ -19,6 +20,17 @@ def it_insert():
     lower = request.form['lower']
     item_operation.item_insert(name,abbr,unit,upper,lower)
     return render_template('insert_ok.html')
+
+@app.route('/item_search',methods=['GET'])
+def item_search_page():
+    return render_template('item_search.html')
+
+@app.route('/item_search',methods=['POST'])
+def item_search():
+    name = request.form['name']
+    abbr = request.form['abbr']
+    item_operation.item_search(name,abbr)
+    return render_template('item_list.html',results=result)
 
 if __name__ == '__main__':
     app.run()
